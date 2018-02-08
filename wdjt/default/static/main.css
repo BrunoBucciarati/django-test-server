@@ -1,0 +1,19 @@
+body {
+    background-image: url('./bg.jpg');
+    background-repeat: repeat-x;
+    text-align:center;
+}
+
+.navbar ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+.navbar li {
+    margin-top:10px;
+    display:block;
+    width:100px;
+    background-color:#12ff00;
+    color:#fff9d1;
+}

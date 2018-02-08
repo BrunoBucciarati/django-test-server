@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{%static 'css/default.css' %}" />
+        <title>上传info文件</title>
+    </head>
+    <body>
+        <form action="/cdnchecker/uploadFile/" method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <input type="file" name="fileUpload" />
+        <br/>
+        <input type="submit" value="上传" onClick="alert(“上传成功”)" />
+        </form>
+        <p>目前仅支持更新包及配置更新</p>
+    </body>
+</html>

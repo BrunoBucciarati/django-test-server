@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>检查中</title>
+        <script>
+            function timeRequest() {
+                var xmlhttp;
+                if (window.XMLHttpRequest) {
+                    xmlhttp = new XMLHttpRequest();
+                }
+                xmlhttp.onreadystatechange=function() {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+                        if (xmlhttp.responseText == "success") {
+                            document.getElementById("txt").innerHTML="CDN刷新成功"
+                            alert("CDN刷新成功！")
+                        }
+                        if (xmlhttp.responseText == "error") {
+                            document.getElementById("txt").innerHTML="发生错误，请检查上传的文件"
+                        }
+                        if (xmlhttp.responseText == "waiting") {
+                            document.getElementById("txt").innerHTML="CDN刷新中"
+                            var t = setTimeout("timeRequest()", 20000)
+                        }
+                    }
+                }
+                xmlhttp.open("GET", "/cdnchecker/wait/", true);
+                xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body onload="timeRequest()">
+        <div id="txt" align="center">{{txt}}</div>
+    </body>
+</html>

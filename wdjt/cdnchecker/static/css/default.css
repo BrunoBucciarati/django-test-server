@@ -1,0 +1,25 @@
+body {
+    background-image: url('../src/bg.jpg');
+    background-repeat: repeat-x;
+    text-align:center;
+}
+
+input[type="submit"] {
+    width:100px;
+    height:60px;
+    margin-top:20px;
+}
+
+.navbar ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+.navbar li {
+    margin-top:10px;
+    display:block;
+    width:100px;
+    background-color:#12ff00;
+    color:#fff9d1;
+}

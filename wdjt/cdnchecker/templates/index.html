@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{%static 'css/default.css' %}" />
+        <title>请选择你的CDN</title>
+    </head>
+    <body>
+        </div>
+        <!--导航-->
+        <div class="navbar">
+            <ul>
+                <li><a href="/">网站首页</a></li>
+                <li><a href="/cdnchecker/">cdn检查器</a></li>
+                <li><a href="/admin/">管理员后台</a></li>
+            </ul>
+        </div>
+        {% if cdnurls %}
+        <form action="/cdnchecker/cdnselect" method="get">
+            <select name="cdn">
+            {% for cdnurl in cdnurls %}
+                    <option value={{cdnurl.url}}>{{cdnurl.name}}</option>
+            {% endfor %}
+            </select>
+            <br/>
+            <select name="plat">
+                <option value="android">Android</option>
+                <option value="ios">IOS</option>
+            </select>
+                
+            <br/>
+            <br/>
+            <input type='submit' value="确认">
+        </form>
+        {% else %}
+            <p>没有存在记录的cdn地址数据，请在管理员后台进行配置</p>
+        {% endif %}
+        <p><font size='3' color='#fff9d1'>此处的选项请在管理员后台配置</font></p>
+    </body>
+</html>
